@@ -34,11 +34,64 @@
       <div class="about-col-1">
           <img src="images/user.png">
       </div>
-      <div class="about-col-1">
+    <div class="about-col-2">
+         <h1 class=""sub-title>About Me</h1>
+         <p>I am a multidisciplinary designer with a curious mind, I enjoy to meet new people and understand how they are solving
+        problems, this is one of the reasons why I invest my time on meetups from product management to everything related to
+        design (research, design thinking, design system, etc.) and talking to people in general, as always can be an
+        opportunity to learn something new. I see it as a chance to improve myself as a professional and put things in practice
+        when I’m creating my solutions.
+        
+        Over +7 years, I’ve worked on a diverse set of projects, working from research to production, that include iOS, Android,
+        web, SaaS, B2B, B2C, user research, data visualisation, art direction and marketing design. </p>
 
-      </div>
+
+        <div class="tab-titles">
+        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+        <p class="tab-links"  onclick="opentab('education')">Eductaion</p>
+        <p class="tab-links"  onclick="opentab('experience')" >Experience</p>
+        </div>
+        <div class="tab-contents active-tab" id="skills">
+        <ul>
+            <li><span>UI/UX</span><br>  Designning website/App Interface</li>
+            <li><span>Web Development</span><br> Web app Development</li>
+            <li><span>App Development</span><br>Building Android/ios apps</li>
+
+        </ul>
+      </div> 
+
+    <div  class="tab-contents" id="education">
+    <ul>
+        <li><span>2021-Current</span><br> Designning website at IT Institute</li>
+        <li><span>2016</span><br> MBA from MIT Bangalore</li>
+        <li><span>2014</span><br>BBA from MIT Bangalore</li>
+    
+    </ul>
+    </div>
+
+      <div class="tab-contents" id="experience">
+    <ul>
+        <li><span>2021-Current</span><br> Designning website at IT Institute </li>
+        <li><span>2019-2021</span><br> Team leader at satar LLC</li>
+        <li><span>App Development</span><br>Building Android/ios apps</li>
+    
+    </ul>
+    </div>
+
     </div>
     </div>
 </div>
+<script>
+    var tablinks=document.getElementsByClassName("tab-links");
+     var tabcontents = document.getElementsByClassName("tab-contents");
+     function opentab(tabname){
+        for(tablink of tablinks ){
+            tablink.classList.remove("active-link");
+        }
+         for (tabcontent of tabcontents) {
+             tabcontent.classList.remove("active-tab");
+         }
+     }
+</script>
 </body>
 </html>
