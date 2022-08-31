@@ -20,7 +20,7 @@
         <li> <a href="#contact">Home</a></li>
         <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
     </ul> 
-              <i class="fa-solid fa-bars" onclick="openmenu"></i>
+              <i class="fa-solid fa-bars" onclick="openmenu()"></i>
   </nav>
    <div class="header-text">
     <p>UI/UX Designer</p>
@@ -179,12 +179,13 @@
             <a href="images/my-cv.pdf" download class="btn btn2">Download CV</a>
         </div>
         <div class="contact-right">
-            <form>
+            <form name="submit-to-google-sheet">
                 <input type="text" name="Name" placeholder="Your Name" required>
                 <input type="email" name="email" placeholder="Your Email" required>
                 <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
                 <button type="submit" class="btn btn2">Submit</button>
             </form>
+         <span id="msg"></span>
         </div>
      </div>
 </div>
@@ -219,6 +220,31 @@
     function closemenu() {
         sidemen.style.right = '-200px';
     }
+</script>
+
+<!------------sheet for contact  -->
+<form name="submit-to-google-sheet">
+    <input name="email" type="email" placeholder="Email" required>
+    <button type="submit">Send</button>
+</form>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwFJER7ADc0DP0a0qWXuM1gstC-Zjs9bj7xgD8ud3HZLIk_uEqTgzxWc3Hxo5yFIGkH4Q/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg=document.getElementById("msg")
+
+    form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            .then(response => {
+               msg.innerHTML="Message sent successfully"
+               setTimeout(function(){
+                   msg.innerHTML=""
+               },5000)
+               form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+    })
 </script>
 </body>
 </html>
